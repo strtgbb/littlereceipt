@@ -2,10 +2,13 @@
 import numpy as np
 import pandas as pd
 
-def get_lines(result_df, line_threshold=30):
+def get_lines(result_df, line_threshold=None):
     lines = []
     group_start = 0
     box_y_distances = np.diff(result_df.y)
+    if line_threshold is None:
+        line_threshold = box_y_distances.mean()
+
     for i in np.where(box_y_distances > line_threshold)[0]:
         group = result_df.iloc[group_start:i+1]
         lines.append(group.sort_values('x').text.values)

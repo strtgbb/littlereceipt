@@ -48,9 +48,11 @@ def main():
         results_df = results2dataframe(result)
         results_df = results_df[results_df.confidence >= detection_threshold]
 
-        lines = get_lines(results_df, line_threshold)
+        lines = get_lines(results_df, line_threshold=None)
 
         joined_lines = [' '.join(l) for l in lines]
+
+        # ~ for l in joined_lines: print(l)
 
         meta = {'zone_width':zone_width,
                 'zone_height':zone_height,

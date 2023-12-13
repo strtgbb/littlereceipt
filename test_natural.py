@@ -17,19 +17,6 @@ use_gpu = False
 support_upsidedown = True
 detection_threshold=0.8
 
-def get_adjusted_line_threshold(result, transcript_data, fudge=0.8):
-    bbox_array = np.array([r[0] for r in result])
-    line_threshold = transcript_data['meta']['line_threshold']
-
-    zone_width = bbox_array[:, :, 0].max() - bbox_array[:, :, 0].min()
-    zone_height = bbox_array[:, :, 1].max() - bbox_array[:, :, 1].min()
-    print(zone_width, zone_height, zone_width/transcript_data['meta']['zone_width'], zone_height/transcript_data['meta']['zone_height'])
-
-    height_ratio = zone_height/transcript_data['meta']['zone_height']
-    line_threshold = int(line_threshold * height_ratio * fudge)
-
-    return line_threshold
-
 def main():
     ocr = PaddleOCR(use_angle_cls=True, lang='en',
                     use_gpu=use_gpu, show_log=False)
@@ -53,9 +40,9 @@ def main():
         results_df = results2dataframe(result)
         results_df = results_df[results_df.confidence >= detection_threshold]
 
-        line_threshold = get_adjusted_line_threshold(result, transcript_data)
-        lines = get_lines(results_df, line_threshold)
+        lines = get_lines(results_df, line_threshold=None)
         joined_lines = [' '.join(l) for l in lines]
+        # ~ for l in joined_lines: print(l)
 
         distance = nltk.edit_distance(' '.join(joined_lines),
                                       ' '.join(transcript_data['lines'])
