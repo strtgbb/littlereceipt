@@ -16,11 +16,11 @@ def get_lines(result_df, line_threshold=None):
 
     for i in np.where(box_y_distances > line_threshold)[0]:
         group = result_df.iloc[group_start:i+1]
-        lines.append(group.sort_values('x').text.values)
+        lines.append(group.sort_values('x').text.values.tolist())
         group_start = i + 1
 
     group = result_df.iloc[group_start:]
-    lines.append(group.sort_values('x').text.values)
+    lines.append(group.sort_values('x').text.values.tolist())
 
     return lines
 
