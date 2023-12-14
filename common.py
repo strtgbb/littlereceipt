@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
+import glob
+
 import numpy as np
 import pandas as pd
+
+def list_dir(glob_pattern):
+    return glob.glob(glob_pattern)
 
 def get_lines(result_df, line_threshold=None):
     lines = []
