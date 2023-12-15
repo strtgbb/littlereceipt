@@ -63,6 +63,7 @@ def main(
                     use_gpu=use_gpu, show_log=False)
 
     image_file_paths = list_dir(ideal_image_dir)
+    print('Found', len(image_file_paths), 'to process')
 
     for img_path in image_file_paths:
         img_id = os.path.basename(img_path).split('_')[0]

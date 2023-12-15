@@ -60,8 +60,8 @@ def collect_scores(ids, ref_transcripts, photo_transcripts):
 
             words_score_row.append(score_method(set(r_words), set(t_words)))
 
-        lines_score_row.append(len(r_lines))
-        words_score_row.append(len(r_words))
+        lines_score_row.append(len(set(r_lines)))
+        words_score_row.append(len(set(r_words)))
 
         df_line_scores.loc[i] = lines_score_row
         df_word_scores.loc[i] = words_score_row
@@ -96,8 +96,7 @@ def main(
                     use_gpu=use_gpu, show_log=False)
 
     image_file_paths = list_dir(natural_image_dir)
-
-    score_df = pd.DataFrame(columns=['img_id','distance','distance_nospaces'])
+    print('Found', len(image_file_paths), 'to process')
 
     img_ids = []
     ref_transcripts = []
