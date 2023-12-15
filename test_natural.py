@@ -34,6 +34,9 @@ def parse_args():
     parser.add_argument('-s', '--suffix',
         help='Suffix that was appended after the image id and underscore in transcript filename. Default: "result"',
         default='result')
+    parser.add_argument('--csv',
+        help='Save detailed score output to csv files. Default: False',
+        action='store_true')
 
     return parser.parse_args()
 
@@ -91,6 +94,7 @@ def main(
     support_upsidedown=True,
     detection_threshold=0.6,
     result_suffix='result',
+    csv_debug=False,
 ):
     ocr = PaddleOCR(use_angle_cls=True, lang='en',
                     use_gpu=use_gpu, show_log=False)
@@ -129,6 +133,10 @@ def main(
     df_line_scores, df_word_scores = collect_scores(
         img_ids, ref_transcripts, photo_transcripts)
 
+    if csv_debug:
+        df_line_scores.to_csv('line_scores.csv')
+        df_word_scores.to_csv('word_scores.csv')
+
     print_scores(df_line_scores, df_word_scores)
 
 if __name__ == '__main__':
@@ -140,5 +148,6 @@ if __name__ == '__main__':
         support_upsidedown= not args.no_upsidedown,
         detection_threshold=args.detection,
         result_suffix=args.suffix,
+        csv_debug=args.csv,
     )
 
