@@ -1,0 +1,17 @@
+{
+  "lines": [
+    "$39.99",
+    "Ultra Wash Club $0.00",
+    "Ultrawash Club Redeem",
+    "SubTotal Reglona1Taxes [13.000%] $39.99 $5.20",
+    "Total $45.19",
+    "Amount Tendered $45.19"
+  ],
+  "meta": {
+    "id": "14",
+    "zone_width": 258.0,
+    "zone_height": 160.0,
+    "detection_threshold": 0.8
+  },
+  "raw_results": null
+}

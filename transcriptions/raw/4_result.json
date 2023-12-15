@@ -1,0 +1,17 @@
+{
+  "lines": [
+    "S Description of Goods HSN/SAC Quantity Rate per Amount",
+    "2Round Up 1 Lt 1 AMMO.SULPHATE SARDAR 38089350 31022100 12/Nos 2 Nos 952.38 Nos 449.15Nos 1,904.76 898.30",
+    "2,803.06",
+    "CGST SGST 128.47 128.47",
+    "Indian Rupees Three Thousand Sixty Only Amount Chargeable (in words) Total 4 Nos 3,060.00 E.&O.E",
+    "38089350 31022100 HSN/SAC Total2,803.06 1904.76 Taxable Value 898.30 2.50% Rate Amount Central Tax 9% 128.47 80.85 47.62 2.50% Rate 9% State Tax Amount 128.47 47.62 80.85 Tax Amount Total 161.70 256.94 95.24"
+  ],
+  "meta": {
+    "id": "4",
+    "zone_width": 900.0,
+    "zone_height": 733.0,
+    "detection_threshold": 0.8
+  },
+  "raw_results": null
+}

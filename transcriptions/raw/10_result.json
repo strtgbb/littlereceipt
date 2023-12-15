@@ -1,0 +1,20 @@
+{
+  "lines": [
+    "5.00",
+    "1.96",
+    "Saving0.90",
+    "5.49",
+    "5/$0.99 H 0.33",
+    "SUBTOTAL 20.29",
+    "0.33713.000 0.04",
+    "TOLAL 20.33",
+    "CREOLLCR 20.33"
+  ],
+  "meta": {
+    "id": "10",
+    "zone_width": 231.0,
+    "zone_height": 231.0,
+    "detection_threshold": 0.8
+  },
+  "raw_results": null
+}

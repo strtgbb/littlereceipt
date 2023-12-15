@@ -1,0 +1,19 @@
+{
+  "lines": [
+    "Part# Taxable",
+    "Quantity 1.00 1.00 Lubricant $10.99 $29.99 $4.08 $3.50 $10.99 $29.99 $4.08 $3.50",
+    "1.00",
+    "0.50 FULL SYN",
+    "Description: FULL SYN SubTotal Non-Taxable $0.00 $48.56 $48.56 $6.31",
+    "Tax%13.000%",
+    "$54.87",
+    "TOTAL VISA"
+  ],
+  "meta": {
+    "id": "15",
+    "zone_width": 697.0,
+    "zone_height": 347.0,
+    "detection_threshold": 0.8
+  },
+  "raw_results": null
+}
