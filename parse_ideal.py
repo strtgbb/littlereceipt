@@ -63,7 +63,7 @@ def main(
                     use_gpu=use_gpu, show_log=False)
 
     image_file_paths = list_dir(ideal_image_dir)
-    print('Found', len(image_file_paths), 'to process')
+    print('Found', len(image_file_paths), 'files to process')
 
     for img_path in image_file_paths:
         img_id = os.path.basename(img_path).split('_')[0]
@@ -96,6 +96,8 @@ def main(
                      meta,
                      result if save_raw else None,
                      )
+
+    print('Done.')
 
 if __name__ == '__main__':
     args = parse_args()

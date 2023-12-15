@@ -96,7 +96,7 @@ def main(
                     use_gpu=use_gpu, show_log=False)
 
     image_file_paths = list_dir(natural_image_dir)
-    print('Found', len(image_file_paths), 'to process')
+    print('Found', len(image_file_paths), 'files to process')
 
     img_ids = []
     ref_transcripts = []

@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 import glob
+import os
 
 import numpy as np
 import pandas as pd
 
 def list_dir(glob_pattern):
-    return glob.glob(glob_pattern)
+    r = glob.glob(glob_pattern)
+    if len(r) == 1 and os.path.isdir(r[0]):
+        # If user passes a non-glob path, convert it to a glob pattern
+        r = glob.glob(os.path.join(glob_pattern, '*'))
+    return r
 
 def get_lines(result_df, line_threshold=None):
     lines = []
