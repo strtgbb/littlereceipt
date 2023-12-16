@@ -1,0 +1,6 @@
+pandas
+numpy
+nltk
+
+paddlepaddle -i https://pypi.tuna.tsinghua.edu.cn/simple
+paddleocr>=2.0.1

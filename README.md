@@ -13,6 +13,10 @@ The example data is focused around receipts.
 
 To run against the included data `images/ideal` and `images/natural`
 
+To install dependencies (venv recommended):
+
+`pip install -r requirements.txt`
+
 To create the transcript files from the ideal images run
 
 `./parse ideal.py`
