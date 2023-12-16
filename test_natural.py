@@ -112,9 +112,6 @@ def main(
         transcript_path = os.path.join(transcription_dir,
                                        f'{img_id}_{result_suffix}.json')
 
-        with open(transcript_path) as f:
-            transcript_data = json.load(f)
-
         result = ocr.ocr(img_path, cls=support_upsidedown)
         assert len(result) == 1
         result = result[0]
@@ -125,6 +122,9 @@ def main(
         lines = get_lines(results_df, line_threshold=None)
         joined_lines = [' '.join(l) for l in lines]
         # ~ for l in joined_lines: print(l)
+
+        with open(transcript_path) as f:
+            transcript_data = json.load(f)
 
         ref_transcripts.append(transcript_data['lines'])
         photo_transcripts.append(joined_lines)
