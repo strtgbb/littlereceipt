@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 import glob
+import os
 
 import numpy as np
 import pandas as pd
 
 def list_dir(glob_pattern):
-    return glob.glob(glob_pattern)
+    r = glob.glob(glob_pattern)
+    if len(r) == 1 and os.path.isdir(r[0]):
+        # If user passes a non-glob path, convert it to a glob pattern
+        r = glob.glob(os.path.join(glob_pattern, '*'))
+    return sorted(r)
 
 def get_lines(result_df, line_threshold=None):
     lines = []
@@ -16,11 +21,11 @@ def get_lines(result_df, line_threshold=None):
 
     for i in np.where(box_y_distances > line_threshold)[0]:
         group = result_df.iloc[group_start:i+1]
-        lines.append(group.sort_values('x').text.values)
+        lines.append(group.sort_values('x').text.values.tolist())
         group_start = i + 1
 
     group = result_df.iloc[group_start:]
-    lines.append(group.sort_values('x').text.values)
+    lines.append(group.sort_values('x').text.values.tolist())
 
     return lines
 
