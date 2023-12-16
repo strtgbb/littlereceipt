@@ -11,8 +11,6 @@ The example data is focused around receipts.
 
 ## Quickstart
 
-To run against the included data `images/ideal` and `images/natural`
-
 To install dependencies (venv recommended):
 
 `pip install -r requirements.txt`
@@ -25,6 +23,7 @@ To run a comparison of the natural images to the transcripts run
 
 `./test_natural.py`
 
+The above will use the included data in `images/ideal` and `images/natural`
 
 ## A note on file names
 The portion of the filename before an underscore `_` is taken as the image's ID.
