@@ -10,7 +10,7 @@ def list_dir(glob_pattern):
     if len(r) == 1 and os.path.isdir(r[0]):
         # If user passes a non-glob path, convert it to a glob pattern
         r = glob.glob(os.path.join(glob_pattern, '*'))
-    return r
+    return sorted(r)
 
 def get_lines(result_df, line_threshold=None):
     lines = []
